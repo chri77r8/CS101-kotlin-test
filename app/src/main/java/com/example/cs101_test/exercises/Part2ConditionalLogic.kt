@@ -4,14 +4,21 @@ object Part2ConditionalLogic {
     // ---------------------- EXERCISE 1
     // Create a function that takes an integer as a parameter and returns "Positive", "Negative", or "Zero".
     fun checkNumber(number: Int): String {
-        // Your code here
-        return ""
+        if (number > 0) {
+            return "Positive"
+        } else if (number == 0) {
+            return "Zero"
+        } else {
+            return "Negative"
+        }
     }
 
     // ---------------------- EXERCISE 2
     // Create a function that takes a string and prints each character on a new line.
     fun printChars(input: String) {
-        // Your code here
+        for (element in input) {
+            println(element)
+        }
     }
 
     // ---------------------- EXERCISE 3
@@ -26,15 +33,16 @@ object Part2ConditionalLogic {
     // Create a function that takes a list of integers and returns a new list with only the odd numbers.
     // For example if input is (1,2,3,4,5) then output should be (1,3,5)
     fun filterOddNumbers(numbers: List<Int>): List<Int> {
-        // Your code here
-        return listOf()
+        val filteredList = numbers.filter{it % 2 != 0}
+        return filteredList
     }
 
     // ---------------------- EXERCISE 5
     // Create a function that takes a list of strings and returns a new list with all strings in lowercase.
     fun transformToLowercase(strings: List<String>): List<String> {
         // Your code here
-        return listOf()
+        val lowercaseList = strings.map{it.lowercase()}
+        return lowercaseList
     }
 
     // ---------------------- EXERCISE 6
@@ -42,6 +50,11 @@ object Part2ConditionalLogic {
     // Expected output: "1", "2", "4", "5", "7", "8", "10"
     fun printNumbersSkipMultiplesOf3() {
         // Your code here
+        for (i in 1..10) {
+            if (i % 3 != 0) {
+                println(i)
+            }
+        }
     }
 
     // ---------------------- EXERCISE 7
@@ -50,15 +63,16 @@ object Part2ConditionalLogic {
     // White spaces should be ignored.
     fun isPalindrome(input: String): Boolean {
         // Your code here
-        return false
+        val removeWhiteSpace = input.filter{!it.isWhitespace()}
+        return removeWhiteSpace == removeWhiteSpace.reversed()
     }
 
     // ---------------------- EXERCISE 8
     // Modify the function to have default values for both width and height and to return the area of the rectangle.
     // Example of a function with a default value "world": fun greet(name: String = "world") {}
-    fun calculateArea(width: Int, height: Int): Int {
+    fun calculateArea(width: Int = 10, height: Int = 20): Int {
         // Your code here
-        return 0
+        return width * height
     }
 
     // ---------------------- EXERCISE 9
@@ -67,7 +81,23 @@ object Part2ConditionalLogic {
     // Acceptable days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
     // If the day does not exist, return "Invalid day".
     fun dayType(day: String): String {
-        return ""
+        if (day.equals("Monday", true)) {
+            return "Weekday"
+        } else if (day.equals("Tuesday", true)) {
+            return "Weekday"
+        } else if (day.equals("Wednesday", true)) {
+            return "Weekday"
+        } else if (day.equals("Thursday", true)) {
+            return "Weekday"
+        } else if (day.equals("Friday", true)) {
+            return "Weekday"
+        } else if (day.equals("Saturday", true)) {
+            return "Weekend"
+        } else if (day.equals("Sunday", true)) {
+            return "Weekend"
+        } else {
+            return "Invalid day"
+        }
     }
 
     // ---------------------- EXERCISE 10
